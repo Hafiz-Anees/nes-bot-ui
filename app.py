@@ -1,0 +1,44 @@
+import os
+import uuid
+import requests
+import streamlit as st
+from dotenv import load_dotenv
+
+load_dotenv()
+# BACKEND_URL = os.getenv("BACKEND_URL")
+# BACKEND_URL = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL"))
+
+BACKEND_URL = "https://academy-chat-bot.onrender.com"
+
+st.set_page_config(page_title="Academy Admissions Assistant", page_icon="🎓")
+st.title("🎓 NASEER EDUCATION SYSTEM")
+
+if "session_id" not in st.session_state:
+    st.session_state.session_id = str(uuid.uuid4())
+if "history" not in st.session_state:
+    st.session_state.history = []
+
+for turn in st.session_state.history:
+    with st.chat_message(turn["role"]):
+        st.markdown(turn["content"])
+
+if prompt := st.chat_input("Ask about courses, fees, or admissions..."):
+    st.session_state.history.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    with st.chat_message("assistant"):
+        with st.spinner("Thinking..."):
+            try:
+                r = requests.post(
+                    f"{BACKEND_URL}/chat",
+                    json={"session_id": st.session_state.session_id, "message": prompt},
+                    timeout=300,
+                )
+                r.raise_for_status()
+                reply = r.json()["reply"]
+            except Exception as e:
+                reply = f"Sorry, something went wrong connecting to the backend: {e}"
+            st.markdown(reply)
+
+    st.session_state.history.append({"role": "assistant", "content": reply})
