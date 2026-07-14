@@ -8,7 +8,7 @@ load_dotenv()
 # BACKEND_URL = os.getenv("BACKEND_URL")
 # BACKEND_URL = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL"))
 
-BACKEND_URL = "https://academy-chat-bot.onrender.com"
+BACKEND_URL = os.getenv("BACKEND_URL") # Default to localhost if not set
 
 st.set_page_config(page_title="Academy Admissions Assistant", page_icon="🎓")
 st.title("🎓 NASEER EDUCATION SYSTEM")
