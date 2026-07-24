@@ -11,7 +11,7 @@ load_dotenv()
 BACKEND_URL = os.getenv("BACKEND_URL") # Default to localhost if not set
 
 st.set_page_config(page_title="Academy Admissions Assistant", page_icon="🎓")
-st.title("🎓 NASEER EDUCATION SYSTEM")
+st.title("🎓 ANEES EDUCATION SYSTEM")
 
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())
