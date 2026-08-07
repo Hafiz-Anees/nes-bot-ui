@@ -1,7 +1,6 @@
 /* User messages */
 [data-testid="stChatMessage"]:nth-child(odd) {
     color: #1976D2;
-    color: white;
     border-radius: 12px;
     padding: 12px;
 }
@@ -9,7 +8,6 @@
 /* Assistant messages */
 [data-testid="stChatMessage"]:nth-child(even) {
     color: #F1F3F6;
-    color: black;
     border-radius: 12px;
     padding: 12px;
 }
