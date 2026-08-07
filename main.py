@@ -5,13 +5,17 @@ import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
-# BACKEND_URL = os.getenv("BACKEND_URL")
-# BACKEND_URL = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL"))
 
 BACKEND_URL = os.getenv("BACKEND_URL") # Default to localhost if not set
 
-st.set_page_config(page_title="Assistant", page_icon="🎓")
-st.title("")
+st.set_page_config(page_title="Assistant", page_icon="🎓",layout="centered")
+
+
+# LOADING CSS
+with open("styles/style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+st.title("ANEES EDUCATION SYSTEM")
 
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())

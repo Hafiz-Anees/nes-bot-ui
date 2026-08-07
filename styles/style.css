@@ -1,0 +1,77 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Entire App */
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background */
+.stApp {
+    background: linear-gradient(135deg, #f5f7fa, #e8f1ff);
+}
+
+/* Title */
+h1 {
+    color: #0F52BA;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Chat input */
+.stChatInput {
+    border-radius: 15px;
+}
+
+/* User Message */
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) {
+    background: linear-gradient(135deg,#0F62FE,#4589FF);
+    color: white;
+    border-radius: 18px;
+    padding: 14px;
+    margin: 12px 0;
+    box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+
+/* Assistant Message */
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
+    background: white;
+    border-left: 5px solid #00B894;
+    border-radius: 18px;
+    padding: 14px;
+    margin: 12px 0;
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+/* Message text */
+[data-testid="stMarkdownContainer"] p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Chat input box */
+textarea {
+    border-radius: 15px !important;
+    border: 2px solid #0F62FE !important;
+}
+
+/* Buttons */
+button {
+    border-radius: 10px !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0F62FE;
+    border-radius: 10px;
+}
+
+/* Spinner */
+.stSpinner > div {
+    border-top-color: #0F62FE !important;
+}
